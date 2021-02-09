@@ -1,5 +1,5 @@
 <template>
-  <v-dialog eager @input="change" value="true" :max-width="width" :persistent="persistent" @keydown.esc="choose(false)">
+  <v-dialog eager @input="change" value="true" :max-width="width" :persistent="persistent" v-on="keyBindings ? {'keydown.esc' : choose(false)} : null">
     <v-card tile>
       <v-toolbar v-if="Boolean(title)" dark :color="color" dense flat>
         <v-icon v-if="Boolean(icon)" left>{{ icon }}</v-icon>
@@ -84,6 +84,12 @@ export default {
       required: true
     },
     persistent: Boolean,
+    keyBindings: {
+      type:Boolean,
+      default() {
+        return true
+      }
+    },
     title: {
       type: String
     },

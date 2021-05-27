@@ -24,6 +24,14 @@
         >
           {{ buttonTrueText }}
         </v-btn>
+        <v-btn
+          v-if="Boolean(buttonUndoText)"
+          :color="buttonUndoColor"
+          :text="buttonUndoFlat"
+          @click="choose(undefined)"
+        >
+          {{ buttonUndoText }}
+        </v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
@@ -53,6 +61,10 @@ export default {
       type: String,
       default: 'No'
     },
+    buttonUndoText: {
+      type: String,
+      default: 'Undo'
+    },
     buttonTrueColor: {
       type: String,
       default: 'primary'
@@ -61,11 +73,19 @@ export default {
       type: String,
       default: 'grey'
     },
+    buttonUndoColor: {
+      type: String,
+      default: 'grey'
+    },
     buttonFalseFlat: {
       type: Boolean,
       default: true
     },
     buttonTrueFlat: {
+      type: Boolean,
+      default: true
+    },
+    buttonUndoFlat: {
       type: Boolean,
       default: true
     },
